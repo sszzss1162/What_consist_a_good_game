@@ -48,8 +48,7 @@ def clean_raw_data(input_path: str, output_path: str) -> None:
     df_clean['review_ratio'] = df_clean['positive_reviews'] / df_clean['total_reviews']
     
     snapshot_time_str = df_clean['snapshot_time'].iloc[0]
-    snapshot_dt = datetime.fromisoformat(snapshot_time_str.replace('Z', '+00:00'))
-
+    snapshot_dt = datetime.fromisoformat(snapshot_time_str.replace('Z', '+00:00')).replace(tzinfo=None)
     df_clean['release_dt'] = pd.to_datetime(df_clean['release_date'], errors='coerce')
     
     df_clean['days_since_release'] = (
