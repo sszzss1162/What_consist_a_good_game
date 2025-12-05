@@ -13,6 +13,8 @@ if __name__ == "__main__":
     
     os.makedirs(os.path.dirname(CLEAN_DATA_PATH), exist_ok=True)
 
+    os.makedirs(os.path.dirname(RAW_DATA_PATH), exist_ok=True)
+
     print("--- STEP 1: Fetching Raw Data ---")
     fetch_and_save_raw_data(RAW_DATA_PATH)
 
