@@ -29,6 +29,10 @@ def clean_raw_data(input_path: str, output_path: str) -> None:
         print(f"Error: Could not decode JSON from {input_path}")
         return
 
+    if df.empty or len(df) == 0: 
+        print("Warning: Input DataFrame is empty. Cannot perform cleaning.")
+        return
+
     print(f"Initial raw data size: {len(df)} records.")
 
     MIN_REVIEWS = 50 
